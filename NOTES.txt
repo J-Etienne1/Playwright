@@ -1,6 +1,71 @@
-HOW TO RUN TESTS:
-npx playwright test -- runs all test on all broswers in headless mode in the test folder
-npx playwright show-report -- show rport of tests
+:::HOW TO RUN TESTS:::
+npx playwright test                                         | runs all test on all broswers in headless mode in the test folder
+
+npx playwright show-report                                  | shows report of tests
+
+npx playwright test --workers 3                             | runs with 3 workers in parallel
+
+npx playwright test filename.js                             | runs a specific test file
+
+npx playwright test filename.spec.js filename.spec.js       | runs multiple specific test files
+
+npx playwright test filename1 filename2                     | shorthand of the previous command
+
+npx playwright test -g "check title"                        | runs test with the title eg npx playwright test -g "has title"
+test('has title', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+npx playwright test --project=chromium                      | runs test on a specific browser
+
+npx playwright test --headed                                | runs test in headed mode
+
+npx playwright test --debug                                 | debug test
+
+npx playwright test filename.spec.js --debug                | debug a specific test file
+
+npx playwright test filename.spec.js:21 --debug             | debug starting from a specific line, line should be the start of a test eg
+test('has title', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+starts on line 4 
+
+
+
+
+
+
+:::HOW TO CREATE TESTS:::
+1. Create a new file in the tests folder
+
+2. File must have the ext .spec.js
+
+3. Add module "playwright/test" -  modules live in nodes_modules folder look for @playwright folder we need scripts from here
+   To add them, use an import in your test file using 
+   require("playwright/test")
+4. Also need the test.js & expect.js scripts so add them to your test file
+   instead of including evertyhing in the lib folder can use var OR const to declare them in the test file
+   const{test, expect}= require('@playwright/test');
+
+
+5. created demo folder in tests with the file hello.js and created functions and exposed them to be used in the test my_first_test/.spec.js
+   to run them used
+   node .\tests\my_first_test.spec.js
+
+6. Playwright Test provides a test function to declare and expect function to write assertions
+
+7. create a test block - test(title, function)
+test('My first test', () => {
+    
+})
+
+
+8. the page paramater allows us access webpages
+
+9. the async before a function makes a function return a promise
+
+9. the await keyword before the function makes the function wait a promise
+
+
+
 
 
 
