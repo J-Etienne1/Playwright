@@ -1,0 +1,25 @@
+HOW TO RUN TESTS:
+npx playwright test -- runs all test on all broswers in headless mode in the test folder
+npx playwright show-report -- show rport of tests
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
